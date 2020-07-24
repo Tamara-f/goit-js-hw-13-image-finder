@@ -1,0 +1,93 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif,
+    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  text-align: center;
+  color: #ffff;
+  background-color: #191919;
+}
+.notactive {
+  display: none;
+}
+
+#gallery {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+li {
+  list-style: none;
+  position: relative;
+  margin-bottom: 10px;
+}
+.photo-card {
+  width: 480px;
+  height: 280px;
+}
+
+img {
+  height: 100%;
+  width: 100%;
+  cursor: pointer;
+  object-fit: cover;
+}
+
+.stats {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  position: absolute;
+  bottom: 5px;
+  right: 10px;
+  width: 200px;
+  opacity: 80%;
+}
+
+input {
+  font-size: 20px;
+  border: cornsilk;
+  padding: 8px 25px;
+}
+button {
+  color: #ffff;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 8px 21px;
+  border-width: 1px;
+
+  border-image: linear-gradient(
+      90deg,
+      #00c0ff 0%,
+      #ffcf00 49%,
+      #fc4f4f 80%,
+      #00c0ff 100%
+    )
+    1;
+
+  background: #000;
+}
+/* */
+
+button:hover {
+  border-image: linear-gradient(
+      10deg,
+      #00c0ff 0%,
+      #ffcf00 49%,
+      #fc4f4f 80%,
+      #00c0ff 100%
+    )
+    1;
+  border-width: 2px;
+  padding: 7px 20px;
+  transition: all ease-out;
+}
