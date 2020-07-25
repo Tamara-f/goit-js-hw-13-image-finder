@@ -22,8 +22,9 @@ body {
 
 #gallery {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   flex-wrap: wrap;
+  align-items: flex-start;
 }
 li {
   list-style: none;
@@ -41,7 +42,22 @@ img {
   cursor: pointer;
   object-fit: cover;
 }
+.pnotify {
+  background-color: #fff;
+  font-size: 20px;
+  color: gray;
+  text-align: left;
+}
 
+.modal {
+  width: 80%;
+  height: 80%;
+  margin: 0 auto;
+}
+.modal i {
+  float: right;
+  cursor: pointer;
+}
 .stats {
   display: flex;
   flex-wrap: nowrap;
