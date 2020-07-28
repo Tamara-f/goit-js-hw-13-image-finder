@@ -19,7 +19,20 @@ body {
 .notactive {
   display: none;
 }
-
+.top {
+  position: fixed;
+  right: 25px;
+  bottom: 15px;
+  color: #fff;
+  opacity: 80%;
+  background-color: gray;
+  width: 40px;
+  height: 40px;
+  border-radius: 5px;
+}
+.top i {
+  padding-top: 7px;
+}
 #gallery {
   display: flex;
   justify-content: space-evenly;

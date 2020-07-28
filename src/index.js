@@ -22,10 +22,11 @@ refs.form.addEventListener('submit', event => {
   refs.loadmore.classList.add('notactive');
   refs.gallery.innerHTML = '';
   if (event.currentTarget.elements.query.value === '') {
-    refs.gallery.innerHTML = '';
+    // refs.gallery.innerHTML = '';
     alert('Please enter search term');
   } else {
     inputValue = event.currentTarget.elements.query.value;
+    pageNumber = 1;
     startFetch(inputValue);
   }
 });
@@ -33,15 +34,21 @@ refs.form.addEventListener('submit', event => {
 //for fetch
 function startFetch() {
   const API_KEY = '17615021-9599c8e133abdd89b923fc662';
-  const URL = `https://pixabay.com/api/?image_type=photo&orientation=horizontal&q=${encodeURIComponent(
+  const url = `https://pixabay.com/api/?image_type=photo&orientation=horizontal&q=${encodeURIComponent(
     ` ${inputValue}`,
   )}&page=${pageNumber}&per_page=12&key=${API_KEY}`;
 
-  fetch(URL)
+  // const options = {
+  //   headers: {
+  //     Authorization: API_KEY,
+  //   },
+  // };
+
+  fetch(url)
     .then(res => res.json())
     .then(data => {
-      console.log(data);
-      if (data.total === 0) {
+      // console.log(data.hits);
+      if (data.hits.length === 0) {
         alert('Found 0 matches! Please enter correct search term');
       } else createGallery(data);
       if (data.hits.length < 12 && data.hits.length > 0) {
@@ -62,16 +69,12 @@ function createGallery(data) {
 
 // for modal
 refs.gallery.addEventListener('click', event => {
-  console.log(event.target.dataset.source);
-  const instance = basicLightbox.create(`  <div class="modal">
-  <a><i class="material-icons">highlight_off</i></a>
-  <img src="${event.target.dataset.source}" >  
-</div> 
-`);
+  // console.log(event.target.dataset.source);
+  const instance = basicLightbox.create(`  <div class="modal">  <a><i class="material-icons">highlight_off</i></a>
+  <img src="${event.target.dataset.source}" >  </div> `);
   {
     instance.element().querySelector('a').onclick = instance.close;
   }
-
   instance.show();
 });
 
@@ -80,8 +83,8 @@ refs.loadmore.addEventListener('click', event => {
   pageNumber += 1;
 
   startFetch(pageNumber);
-  window.scrollTo({
-    top: document.documentElement.scrollHeight,
-    behavior: 'smooth',
-  });
+  // window.scrollTo({
+  //   top: document.documentElement.scrollHeight,
+  //   behavior: 'smooth',
+  // });
 });

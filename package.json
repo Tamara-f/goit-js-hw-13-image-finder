@@ -57,6 +57,7 @@
     "font-awesome": "^4.7.0",
     "handlebars": "^4.7.6",
     "imagemin": "^5.0.0",
+    "infinite-scroll": "^3.0.6",
     "pnotify": "^5.1.2"
   }
 }
