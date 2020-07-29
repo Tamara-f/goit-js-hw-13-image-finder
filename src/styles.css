@@ -51,8 +51,8 @@ li {
   margin-bottom: 10px;
 }
 .photo-card {
-  width: 360px;
-  height: 285px;
+  width: 480px;
+  height: 350px;
 }
 
 .photo-card img {
@@ -60,9 +60,6 @@ li {
   width: 100%;
   cursor: pointer;
   object-fit: cover;
-  position: absolute;
-  top: 0;
-  left: 0;
 }
 .pnotify {
   background-color: #fff;
@@ -72,7 +69,6 @@ li {
 }
 
 .modal {
-  /* width: 720px; */
   height: 720px;
   margin: 0 auto;
 }
@@ -88,7 +84,7 @@ li {
   bottom: 5px;
   right: 10px;
   width: 200px;
-  opacity: 80%;
+  /* opacity: 80%; */
 }
 
 input {
