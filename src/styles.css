@@ -30,7 +30,7 @@ body {
   right: 25px;
   bottom: 15px;
   color: #fff;
-  opacity: 80%;
+  /* opacity: 80%; */
   background-color: gray;
   width: 40px;
   height: 40px;
@@ -84,7 +84,7 @@ li {
   bottom: 5px;
   right: 10px;
   width: 200px;
-  opacity: 80%;
+  /* opacity: 80%; */
 }
 
 input {
