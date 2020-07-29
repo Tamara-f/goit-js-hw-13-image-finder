@@ -55,11 +55,14 @@ li {
   height: 285px;
 }
 
-img {
+.photo-card img {
   height: 100%;
   width: 100%;
   cursor: pointer;
   object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 .pnotify {
   background-color: #fff;
