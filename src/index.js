@@ -10,14 +10,21 @@ import refs from './js/refs';
 //for submit button
 refs.form.addEventListener('submit', event => {
   event.preventDefault();
-
   refs.loadmore.classList.add('notactive');
   refs.gallery.innerHTML = '';
   apiService.value = event.currentTarget.elements.query.value;
   apiService.resetPage();
   if (event.currentTarget.elements.query.value === '') {
     alert('Please enter search term');
-  } else apiService.startFetch().then(data => onFetchthen(data));
+  } else {
+    refs.spinner.classList.remove('notactive');
+    apiService
+      .startFetch()
+      .then(data => onFetchthen(data))
+      .finally(() => {
+        refs.spinner.classList.add('notactive');
+      });
+  }
 });
 
 // for modal
@@ -32,22 +39,11 @@ refs.gallery.addEventListener('click', event => {
 
 //for button load more
 refs.loadmore.addEventListener('click', () => {
-  apiService.startFetch().then(data => {
-    if (data.hits.length === 0) {
-      alert('Found 0 matches! Please enter correct search term');
-    } else {
-      markupGallery(data.hits);
-      console.log(document.documentElement.scrollHeight + 50);
-      window.scrollTo({
-        top: document.documentElement.scrollHeight,
-        behavior: 'smooth',
-      });
-    }
+  apiService.startFetch().then(data => onFetchthen(data));
 
-    if (data.hits.length < 12 && data.hits.length > 0) {
-      refs.loadmore.classList.add('notactive');
-      alert(`All pictures are already shown. Found ${data.totalHits} matches!`);
-    }
+  window.scrollTo({
+    top: document.documentElement.scrollHeight,
+    behavior: 'smooth',
   });
 });
 

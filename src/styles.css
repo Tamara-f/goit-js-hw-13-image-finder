@@ -21,7 +21,12 @@ body {
 .notactive {
   display: none;
 }
-
+.spinner {
+  color: lightgray;
+  font-size: 20px;
+  /* background-color: lightgray;
+  border: lightgray; */
+}
 .top {
   position: fixed;
   right: 25px;
