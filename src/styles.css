@@ -24,8 +24,6 @@ body {
 .spinner {
   color: lightgray;
   font-size: 20px;
-  /* background-color: lightgray;
-  border: lightgray; */
 }
 .top {
   position: fixed;
@@ -53,8 +51,8 @@ li {
   margin-bottom: 10px;
 }
 .photo-card {
-  width: 240px;
-  height: 190px;
+  width: 360px;
+  height: 285px;
 }
 
 img {
@@ -71,8 +69,8 @@ img {
 }
 
 .modal {
-  width: 80%;
-  height: 80%;
+  /* width: 720px; */
+  height: 720px;
   margin: 0 auto;
 }
 .modal i {

@@ -29,7 +29,12 @@ refs.form.addEventListener('submit', event => {
 
 // for modal
 refs.gallery.addEventListener('click', event => {
-  const instance = basicLightbox.create(`  <div class="modal">  <a><i class="material-icons">highlight_off</i></a>
+  event.preventDefault();
+  if (event.target.nodeName !== 'IMG') {
+    return;
+  }
+  const instance = basicLightbox.create(`  <div class="modal"> 
+ <a>  <i class="material-icons">highlight_off</i></a>
   <img src="${event.target.dataset.source}" >  </div> `);
   {
     instance.element().querySelector('a').onclick = instance.close;
@@ -39,12 +44,15 @@ refs.gallery.addEventListener('click', event => {
 
 //for button load more
 refs.loadmore.addEventListener('click', () => {
-  apiService.startFetch().then(data => onFetchthen(data));
-
-  window.scrollTo({
-    top: document.documentElement.scrollHeight,
-    behavior: 'smooth',
-  });
+  apiService
+    .startFetch()
+    .then(data => onFetchthen(data))
+    .finally(() => {
+      window.scrollTo({
+        top: document.documentElement.scrollHeight,
+        behavior: 'smooth',
+      });
+    });
 });
 
 function onFetchthen(data) {
