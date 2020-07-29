@@ -51,8 +51,8 @@ li {
   margin-bottom: 10px;
 }
 .photo-card {
-  width: 480px;
-  height: 350px;
+  width: 360px;
+  height: 263px;
 }
 
 .photo-card img {
@@ -84,7 +84,7 @@ li {
   bottom: 5px;
   right: 10px;
   width: 200px;
-  /* opacity: 80%; */
+  opacity: 80%;
 }
 
 input {
